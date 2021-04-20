@@ -249,24 +249,6 @@ def run_configuration(dataset_path, analyzer, scroring_func, max_number_of_resul
     """
     Running configuration for particular analyzer and scoring function
 
-    Parameters
-    ----------
-    dataset_path : TYPE
-        DESCRIPTION.
-    analyzer : TYPE
-        DESCRIPTION.
-    scroring_func : TYPE
-        DESCRIPTION.
-    max_number_of_results : TYPE
-        DESCRIPTION.
-    use_title : TYPE
-        DESCRIPTION.
-
-    Returns
-    -------
-    dict
-        DESCRIPTION.
-
     """
     # Indexing
     sir_indexer = SirIndexer(dataset_path, analyzer, use_title=use_title)
@@ -306,12 +288,6 @@ def full_analysis(prefix, dataset_name, use_title):
                      ('stemm', StemmingAnalyzer()), ('fancy', FancyAnalyzer())]
     
     scoring_funcs = [('tf_idf', scoring.TF_IDF()), ('BM25F', scoring.BM25F()),('Freq', scoring.Frequency())]
-    
-    #scoring_funcs = []
-    #for b in [0.2, 0.6, 0.85, 1]:
-    #    for k1 in [1.2, 1.4, 1.6, 1.8, 2]:
-    #        scoring_funcs.append(('BM25F_'+str(b)+'_'+str(k1), scoring.BM25F(B=b, K1=k1)))
-    
     
     
     # Finding max number of ground truth - this will be max number 
